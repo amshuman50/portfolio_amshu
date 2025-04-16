@@ -8,7 +8,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Hi, I'm Amshu Man Maharjan
+              Hi, I am Amshu Man Maharjan
             </h1>
             <h2 className="text-2xl mb-4">
               Web Developer
