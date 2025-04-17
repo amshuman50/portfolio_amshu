@@ -5,7 +5,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
-import { ProjectsSection } from "@/components/sections/ProjectsSection";
+// import { ProjectsSection } from "@/components/sections/ProjectsSection";
+import { Projects } from "@/components/Projects";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <SkillsSection />
-      <ProjectsSection />
+      <Projects />
       <ContactSection />
       <Footer />
     </main>
