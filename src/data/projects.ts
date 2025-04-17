@@ -11,7 +11,7 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "Simple Chat System",
-    description: "A simple chat system You can join by using your name in different browser tab.",
+    description: "A simple chat system You can join by using your name in different browser tab.[Open your browser tabs side by side]",
     technologies: ["React", "Next.js", "Socket.io", "TailwindCSS"],
     githubUrl: "https://github.com/amshuman50/Simple_chat",
     liveUrl: "https://simple-chat-one-sigma.vercel.app/"
