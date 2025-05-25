@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { ContactForm } from "@/components/ContactForm";
+import { Toaster } from "react-hot-toast";
 
 export function ContactSection() {
   return (
@@ -8,11 +9,10 @@ export function ContactSection() {
           Get In Touch
         </h2>
         <div className="max-w-md mx-auto">
-          <Button className="w-full bg-red-600 hover:bg-red-700">
-            Contact Me
-          </Button>
+          <ContactForm />
         </div>
       </div>
+      <Toaster position="top-center" />
     </section>
   );
 } 
