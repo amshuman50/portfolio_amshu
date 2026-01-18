@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const projectPages: MetadataRoute.Sitemap = projects.map((project) => ({
-    url: project.liveUrl || project.githubUrl || BASE_URL,
+    url: project.githubUrl || BASE_URL,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.6,
