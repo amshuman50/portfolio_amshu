@@ -1,15 +1,14 @@
 import { MetadataRoute } from "next";
+import { BASE_URL } from "@/lib/constants";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://amshuman50.vercel.app";
-
   return {
     rules: {
       userAgent: "*",
       allow: "/",
       disallow: [],
     },
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${BASE_URL}sitemap.xml`,
+    host: BASE_URL,
   };
 }
