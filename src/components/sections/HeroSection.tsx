@@ -25,6 +25,7 @@ export function HeroSection() {
               src="/profile.png"
               alt="Profile Picture"
               fill
+              sizes="full"
               className="rounded-full object-cover"
               priority
             />
