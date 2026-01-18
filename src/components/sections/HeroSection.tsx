@@ -22,7 +22,7 @@ export function HeroSection() {
           </div>
           <div className="relative h-80 w-80 mx-auto">
             <Image
-              src="/profile.png"
+              src="/og-image.png"
               alt="Profile Picture"
               fill
               sizes="full"
