@@ -8,7 +8,7 @@ export const SOCIAL_LINKS = {
 
 export const SITE_CONFIG = {
   name: "Amshu Man Maharjan",
-  title: "Amshu Man Maharjan | Frontend Developer",
+  title: "Amshu Man Maharjan - Frontend Developer Portfolio",
   description: "Frontend Developer skilled in React, Next.js, and modern web technologies. Explore my portfolio and projects.",
   keywords: ["Amshu Maharjan", "Frontend Developer", "React", "Next.js", "TypeScript", "Web Developer"],
   jobTitle: "Frontend Developer",
