@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin } from "lucide-react";
-// import { Github, Linkedin, Twitter } from "lucide-react";
+// import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -35,20 +35,20 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
           </Button>
-          {/* <Button
+          <Button
             variant="ghost"
             size="icon"
             asChild
           >
             <a
-              href="https://twitter.com/yourusername"
+              href="https://www.instagram.com/amshumaharjan/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground"
             >
-              <Twitter className="h-5 w-5" />
+              <Instagram className="h-5 w-5" />
             </a>
-          </Button> */}
+          </Button>
         </div>
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} Amshu Man Maharjan. All rights reserved.
