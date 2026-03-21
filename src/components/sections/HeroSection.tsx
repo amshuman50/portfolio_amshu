@@ -2,7 +2,7 @@
 'use client';
 import { motion } from "motion/react";
 import { Code2, Rocket, Sparkles } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 
 export function HeroSection() {
   return (
