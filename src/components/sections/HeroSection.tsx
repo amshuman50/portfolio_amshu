@@ -116,8 +116,8 @@ export function HeroSection() {
               </motion.div>
 
               {/* Background Rings */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-border/20 rounded-full z-0" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-border/10 rounded-full z-0 opacity-50" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-border/50 rounded-full z-0" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-border/60 rounded-full z-0 opacity-50" />
 
               {/* Rotating Orbit Dot */}
               <motion.div
