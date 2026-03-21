@@ -6,22 +6,10 @@ import Image from "next/image";
 
 export function HeroSection() {
   return (
-    // <section id="home" className="py-20 bg-gradient-to-r from-green-500 to-blue-500 text-white">
-    // <section id="home" className="min-h-screen bg-[#030712] text-slate-100 selection:bg-teal-500/30 overflow-hidden font-sans">
-    <section id="home" className="bg-[#030712] text-slate-100 selection:bg-teal-500/30 overflow-hidden font-sans">
+    // <section id="home" className="min-h-screen bg-background text-foreground selection:bg-teal-500/30 overflow-hidden font-sans flex items-center">
+    <section id="home" className="min-h-screen bg-gray-100 dark:bg-[#030712] text-foreground selection:bg-teal-500/30 overflow-hidden font-sans flex items-center">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Hi, I am Amshu Man Maharjan
-            </h1>
-            <h2 className="text-2xl mb-4">
-              Web Developer
-            </h2>
-            <p className="mb-6">
-              I create beautiful and functional web applications using modern technologies.
-            </p>
-          </div> */}
           <div className="flex-1 text-center lg:text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -32,7 +20,7 @@ export function HeroSection() {
                 <Sparkles size={14} /> Available for new projects
               </span>
 
-              <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-white md:text-7xl lg:leading-[1.1]">
+              <h1 className="mb-6 text-5xl font-extrabold tracking-tight text-foreground md:text-7xl lg:leading-[1.1]">
                 Amshu Man <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500">
                   Maharjan
@@ -42,11 +30,11 @@ export function HeroSection() {
               {/* <h2 className="mb-6 text-xl font-medium text-slate-300 md:text-2xl">
                 Web Developer & <span className="italic text-slate-400 font-serif">UI/UX Enthusiast</span>
               </h2> */}
-              <h2 className="mb-6 text-xl font-medium text-slate-300 md:text-2xl">
+              <h2 className="mb-6 text-xl font-medium text-muted-foreground md:text-2xl">
                 Web Developer
               </h2>
 
-              <p className="max-w-xl mb-10 text-lg leading-relaxed text-slate-400 mx-auto lg:mx-0">
+              <p className="max-w-xl mb-10 text-lg leading-relaxed text-muted-foreground mx-auto lg:mx-0">
                 I create beautiful and functional web applications using modern technologies.
                 Specializing in building high-performance, accessible, and user-centric digital experiences.
               </p>
@@ -75,16 +63,6 @@ export function HeroSection() {
 
             </motion.div>
           </div>
-          {/* <div className="relative h-80 w-80 mx-auto">
-            <Image
-              src="/og-image.png"
-              alt="Profile Picture"
-              fill
-              sizes="full"
-              className="rounded-full object-cover"
-              priority
-            />
-          </div> */}
           <div className="relative flex-1 mt-20 lg:mt-0">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -93,7 +71,7 @@ export function HeroSection() {
               className="relative mx-auto w-72 h-72 md:w-96 md:h-96"
             >
               {/* Main Profile Image Container */}
-              <div className="relative z-20 w-full h-full overflow-hidden rounded-full border-4 border-white/10 shadow-[0_0_50px_rgba(20,184,166,0.2)]">
+              <div className="relative z-20 w-full h-full overflow-hidden rounded-full border-4 border-border/20 shadow-[0_0_50px_rgba(20,184,166,0.2)]">
                 <img
                   src="/og-image.png"
                   alt="Amshu Man Maharjan"
@@ -108,15 +86,15 @@ export function HeroSection() {
               <motion.div
                 animate={{ y: [0, -15, 0] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute z-30 top-0 -right-4 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl"
+                className="absolute z-30 top-0 -right-4 p-4 rounded-2xl bg-card/50 backdrop-blur-md border border-border shadow-2xl"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-teal-500/20">
                     <Code2 size={20} className="text-teal-400" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Expertise</p>
-                    <p className="text-sm font-bold text-white">React & Next.js</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-900 dark:text-muted-foreground font-bold">Expertise</p>
+                    <p className="text-sm font-bold text-foreground">React & Next.js</p>
                   </div>
                 </div>
               </motion.div>
@@ -124,22 +102,22 @@ export function HeroSection() {
               <motion.div
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute z-30 bottom-10 -left-10 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 shadow-2xl"
+                className="absolute z-30 bottom-10 -left-10 p-4 rounded-2xl bg-card/50 backdrop-blur-md border border-border shadow-2xl"
               >
                 <div className="flex items-center gap-3">
                   <div className="p-2 rounded-lg bg-blue-500/20">
                     <Rocket size={20} className="text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Experience</p>
-                    <p className="text-sm font-bold text-white">2+ Years</p>
+                    <p className="text-[10px] uppercase tracking-wider text-slate-900  dark:text-muted-foreground font-bold">Experience</p>
+                    <p className="text-sm font-bold text-foreground">2+ Years</p>
                   </div>
                 </div>
               </motion.div>
 
               {/* Background Rings */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full z-0" />
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-white/5 rounded-full z-0 opacity-50" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-border/20 rounded-full z-0" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-border/10 rounded-full z-0 opacity-50" />
 
               {/* Rotating Orbit Dot */}
               <motion.div
@@ -153,6 +131,15 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <p className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">Scroll to explore</p>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-teal-500 to-transparent" />
+      </motion.div>
     </section>
   );
 } 
