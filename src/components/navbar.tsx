@@ -1,12 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -25,7 +36,7 @@ export function Navbar() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <span className="font-bold">Portfolio</span>
         </Link>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-4">
           {navItems.map((item) => (
@@ -35,14 +46,33 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Mobile Navigation Button */}
-        <Button
-          variant="ghost"
-          className="md:hidden"
-          onClick={handleDrawerToggle}
-        >
-          <Menu className="h-5 w-5" />
-        </Button>
+        {/* Spacer */}
+        <div className="ml-auto flex items-center gap-2">
+          {/* Theme Toggle Button */}
+          {mounted && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </Button>
+          )}
+
+          {/* Mobile Navigation Button */}
+          <Button
+            variant="ghost"
+            className="md:hidden"
+            onClick={handleDrawerToggle}
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
