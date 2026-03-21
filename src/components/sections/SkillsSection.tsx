@@ -1,13 +1,35 @@
+'use client';
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "motion/react";
 import Image from "next/image";
 
 export function SkillsSection() {
   return (
     <section id="skills" className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">
+        {/* <h2 className="text-3xl font-bold text-center mb-8">
           My Skills, Programming Languages and Frameworks
-        </h2>
+        </h2> */}
+        <div className="mb-20 text-center">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl font-bold text-white md:text-5xl mb-4"
+          >
+            Tech Stack <span className="text-teal-400">&</span> Skills
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-slate-400 max-w-2xl mx-auto"
+          >
+            A comprehensive toolkit of technologies I use to bring ideas to life. 
+            From frontend aesthetics to backend logic.
+          </motion.p>
+        </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           {[
             { name: "C", icon: "/c.png" },
