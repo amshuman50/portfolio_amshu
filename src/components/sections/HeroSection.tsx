@@ -16,9 +16,9 @@ export function HeroSection() {
             <p className="mb-6">
               I create beautiful and functional web applications using modern technologies.
             </p>
-            <Button variant="outline" className="bg-white text-purple-600 hover:bg-purple-100">
+            {/* <Button variant="outline" className="bg-white text-purple-600 hover:bg-purple-100">
               View My Work
-            </Button>
+            </Button> */}
           </div>
           <div className="relative h-80 w-80 mx-auto">
             <Image
