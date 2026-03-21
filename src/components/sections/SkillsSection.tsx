@@ -15,7 +15,7 @@ export function SkillsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl font-bold text-white md:text-5xl mb-4"
+            className="text-4xl font-bold md:text-5xl mb-4"
           >
             Tech Stack <span className="text-teal-400">&</span> Skills
           </motion.h2>
@@ -24,7 +24,7 @@ export function SkillsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-slate-400 max-w-2xl mx-auto"
+            className="text-slate-800 dark:text-slate-400  max-w-2xl mx-auto"
           >
             A comprehensive toolkit of technologies I use to bring ideas to life. 
             From frontend aesthetics to backend logic.
