@@ -64,76 +64,76 @@ export function SkillsSection() {
         </div>
 
         <div className="relative min-h-[600px] flex items-center justify-center">
-          {skills.map((skill, index) => {
-            const isLeft = index % 2 === 0;
-            // Random-ish offsets for a scattered look
-            const xOffset = (index - skills.length / 2) * 120;
-            const yOffset = Math.sin(index) * 100;
-
-            // Scroll-based movement: Finish at 0.5 (center of screen) and stay there
-            const initialX = isLeft ? -500 : 500;
-            const x = useTransform(smoothProgress, [0, 0.5, 1], [initialX, xOffset, xOffset]);
-            const opacity = useTransform(smoothProgress, [0, 0.2, 0.5, 1], [0, 0.5, 1, 1]);
-            const scale = useTransform(smoothProgress, [0, 0.5, 1], [0.5, 1, 1]);
-            const rotate = useTransform(smoothProgress, [0, 0.5, 1], [isLeft ? -20 : 20, 0, 0]);
-
-            return (
-              <motion.div
-                key={skill.name}
-                style={{
-                  x,
-                  y: yOffset,
-                  opacity,
-                  scale,
-                  rotate: skill.rotate ? 0 : rotate,
-                  position: "absolute",
-                }}
-                className="group cursor-pointer"
-              >
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-teal-400/20 rounded-full blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative flex flex-col items-center gap-4">
-                  <motion.div
-                    animate={!skill.rotate ? { y: [0, -10, 0] } : {}}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.2
-                    }}
-                    className="relative w-20 h-20 md:w-28 md:h-28 flex items-center justify-center bg-white dark:bg-slate-900 rounded-2xl shadow-xl dark:shadow-teal-900/10 border border-slate-200 dark:border-slate-800 p-5 group-hover:border-teal-400/50 transition-colors duration-300"
-                  >
-                    <motion.img
-                      src={skill.icon}
-                      alt={skill.name}
-                      animate={skill.rotate ? { rotate: 360 } : {}}
-                      transition={skill.rotate ? { duration: 10, repeat: Infinity, ease: "linear" } : {}}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
-                      referrerPolicy="no-referrer"
-                    />
-                  </motion.div>
-                  {/* <motion.span
-                    className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest 
-             opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 
-             transition-all duration-300"
-                  >
-                    {skill.name}
-                  </motion.span>
-                </div>
-              </motion.div> */}
-                  <motion.span
-                    className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest 
-           opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300"
-                  >
-                    {skill.name}
-                  </motion.span>
-                </div>
-              </motion.div>
-            );
-          })}
+          {skills.map((skill, index) => (
+            <SkillItem
+              key={skill.name}
+              skill={skill}
+              index={index}
+              smoothProgress={smoothProgress}
+              total={skills.length}
+            />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function SkillItem({ skill, index, smoothProgress, total }: any) {
+  const isLeft = index % 2 === 0;
+
+  const xOffset = (index - total / 2) * 120;
+  const yOffset = Math.sin(index) * 100;
+
+  const initialX = isLeft ? -500 : 500;
+
+  const x = useTransform(smoothProgress, [0, 0.5, 1], [initialX, xOffset, xOffset]);
+  const opacity = useTransform(smoothProgress, [0, 0.2, 0.5, 1], [0, 0.5, 1, 1]);
+  const scale = useTransform(smoothProgress, [0, 0.5, 1], [0.5, 1, 1]);
+  const rotate = useTransform(smoothProgress, [0, 0.5, 1], [isLeft ? -20 : 20, 0, 0]);
+
+  return (
+    <motion.div
+      style={{
+        x,
+        y: yOffset,
+        opacity,
+        scale,
+        rotate: skill.rotate ? 0 : rotate,
+        position: "absolute",
+      }}
+      className="group cursor-pointer"
+    >
+      <div className="absolute inset-0 bg-teal-400/20 rounded-full blur-2xl scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+      <div className="relative flex flex-col items-center gap-4">
+        <motion.div
+          animate={!skill.rotate ? { y: [0, -10, 0] } : {}}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: index * 0.2,
+          }}
+          className="relative w-20 h-20 md:w-28 md:h-28 flex items-center justify-center bg-white dark:bg-slate-900 rounded-2xl shadow-xl border p-5"
+        >
+          <motion.img
+            src={skill.icon}
+            alt={skill.name}
+            animate={skill.rotate ? { rotate: 360 } : {}}
+            transition={
+              skill.rotate
+                ? { duration: 10, repeat: Infinity, ease: "linear" }
+                : {}
+            }
+            className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500"
+          />
+        </motion.div>
+
+        <span className="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
+          {skill.name}
+        </span>
+      </div>
+    </motion.div>
   );
 }
