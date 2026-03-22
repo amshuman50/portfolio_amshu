@@ -1,6 +1,21 @@
 'use client';
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { MotionValue } from "motion/react";
 import { useRef } from "react";
+
+type Skill = {
+  name: string;
+  icon: string;
+  color: string;
+  rotate?: boolean;
+};
+
+type SkillItemProps = {
+  skill: Skill;
+  index: number;
+  total: number;
+  smoothProgress: MotionValue<number>;
+};
 
 const skills = [
   { name: "C", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg", color: "blue" },
@@ -79,7 +94,7 @@ export function SkillsSection() {
   );
 }
 
-function SkillItem({ skill, index, smoothProgress, total }: any) {
+function SkillItem({ skill, index, smoothProgress, total }: SkillItemProps) {
   const isLeft = index % 2 === 0;
 
   const xOffset = (index - total / 2) * 120;
