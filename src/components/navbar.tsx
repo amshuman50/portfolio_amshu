@@ -4,9 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
-import { Sun, Moon } from "lucide-react";
+import { Menu, Sun, Moon } from "lucide-react";
+import { Sidebar } from "@/components/Sidebar";
 
 export function Navbar() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
 
@@ -18,6 +20,10 @@ export function Navbar() {
     setTheme(theme === "dark" ? "light" : "dark");
   };
 
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   const navItems = [
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
@@ -25,40 +31,54 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-14 items-center">
-        <Link href="/" className="mr-6 flex items-center space-x-2">
-          <span className="font-bold">Home</span>
-        </Link>
+    <>
+      <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container flex h-14 items-center">
+          <Link href="/" className="mr-6 flex items-center space-x-2 ml-4">
+            <span className="font-bold">Home</span>
+          </Link>
 
-        {/* Desktop Navigation ONLY */}
-        <div className="hidden md:flex gap-4">
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.href}>
-              <Button variant="ghost">{item.name}</Button>
-            </Link>
-          ))}
-        </div>
+          {/* Desktop Navigation ONLY */}
+          <div className="hidden md:flex gap-4">
+            {navItems.map((item) => (
+              <Link key={item.name} href={item.href}>
+                <Button variant="ghost">{item.name}</Button>
+              </Link>
+            ))}
+          </div>
 
-        {/* Spacer */}
-        <div className="ml-auto flex items-center gap-2">
-          {/* Theme Toggle */}
-          {mounted && (
+          {/* Spacer */}
+          <div className="ml-auto flex items-center gap-2">
+            {/* Theme Toggle */}
+            {mounted && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            )}
+
             <Button
               variant="ghost"
               size="icon"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
+              onClick={toggleSidebar}
+              aria-label="Open sidebar"
             >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
+              <Menu className="h-5 w-5" />
             </Button>
-          )}
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      {/* Sidebar */}
+      <Sidebar isOpen={sidebarOpen} onClose={toggleSidebar} />
+    </>
   );
 }
