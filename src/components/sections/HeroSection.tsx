@@ -78,6 +78,7 @@ export function HeroSection() {
                   alt="Amshu Man Maharjan"
                   className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
                   referrerPolicy="no-referrer"
+                  fill
                 />
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-teal-500/20 to-transparent pointer-events-none" />
