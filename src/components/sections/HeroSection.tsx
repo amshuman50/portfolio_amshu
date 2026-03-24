@@ -2,6 +2,7 @@
 'use client';
 import { motion } from "motion/react";
 import { Code2, Rocket, Sparkles } from "lucide-react";
+import Image from "next/image";
 // import Image from "next/image";
 
 export function HeroSection() {
@@ -72,7 +73,7 @@ export function HeroSection() {
             >
               {/* Main Profile Image Container */}
               <div className="relative z-20 w-full h-full overflow-hidden rounded-full border-4 border-border/20 shadow-[0_0_50px_rgba(20,184,166,0.2)]">
-                <img
+                <Image
                   src="/og-image.png"
                   alt="Amshu Man Maharjan"
                   className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"

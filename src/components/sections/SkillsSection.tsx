@@ -1,6 +1,7 @@
 'use client';
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 import { MotionValue } from "motion/react";
+import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 
 type Skill = {
@@ -84,7 +85,7 @@ export function SkillsSection() {
           {skills.map((skill) => (
             <div key={skill.name} className="flex flex-col items-center gap-2">
               <div className="w-14 h-14 flex items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow border p-3">
-                <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
+                <Image src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
               </div>
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {skill.name}

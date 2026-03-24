@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { DropdownButton } from "@/components/ui/DropdownButton";
+import Image from "next/image";
 
 interface QRSidebarProps {
   onClose: () => void;
@@ -22,7 +23,7 @@ function QRModal({
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4">
       <div className="relative w-full max-w-md rounded-xl border bg-background p-4 shadow-lg">
         <p className="mb-2 text-sm font-medium">{title}</p>
-        <img
+        <Image
           src={imageSrc}
           alt={`${title} QR`}
           className="h-[420px] w-full object-contain rounded-md"
@@ -35,7 +36,8 @@ function QRModal({
   );
 }
 
-export function QRSidebar({ onClose }: QRSidebarProps) {
+export function QRSidebar({ }: QRSidebarProps) {
+  // export function QRSidebar({ onClose }: QRSidebarProps) {
   const [showEsewa, setShowEsewa] = useState(false);
   const [showBank, setShowBank] = useState(false);
   const [mounted, setMounted] = useState(false);
