@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 // import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { DropdownButton } from "@/components/DropdownButton";
+import { QRSidebar } from "./QRSidebar";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -73,31 +73,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
           ))} */}
 
           {/* Resume Button */}
-          <Button
-            variant="ghost"
-            className="w-full justify-start"
+          <a
+            href="/Amshu%20Man%20Maharjan.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={onClose}
           >
-            Resume
-          </Button>
+            <Button variant="ghost" className="w-full justify-start">
+              CV
+            </Button>
+          </a>
 
-          {/* QR Code Dropdown */}
-          <DropdownButton label="QR Code">
-            <Button
-              variant="ghost"
-              className="w-full justify-start"
-              onClick={onClose}
-            >
-              Esewa
-            </Button>
-            <Button
-              variant="ghost"
-              className="w-full justify-start"
-              onClick={onClose}
-            >
-              Bank
-            </Button>
-          </DropdownButton>
+          {/* QR Code Dropdown (moved to reusable QRSidebar) */}
+          <QRSidebar onClose={onClose} />
         </nav>
       </div>
     </>
