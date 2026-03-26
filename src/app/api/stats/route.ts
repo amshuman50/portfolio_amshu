@@ -60,13 +60,14 @@
 
 
 import { NextResponse } from 'next/server';
-import { redis } from '../../../lib/redisClient';
+import { getRedis } from '../../../lib/redisClient';
 
 // Define the keys and their types
 type StatsKey = 'visitors' | 'github_clicks' | 'linkedin_clicks' | 'instagram_clicks';
 type Stats = Record<StatsKey, number>;
 
 export async function GET() {
+  const redis = getRedis();
   const keys: StatsKey[] = ['visitors', 'github_clicks', 'linkedin_clicks', 'instagram_clicks'];
 
   try {

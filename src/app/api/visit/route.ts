@@ -42,9 +42,10 @@
 
 
 import { NextResponse } from 'next/server';
-import { redis } from "../../../lib/redisClient";
+import { getRedis } from "../../../lib/redisClient";
 
 export async function POST() {
+  const redis = getRedis();
   try {
     // Increment the visitors count
     const visitors = await redis.incr("visitors");
