@@ -44,7 +44,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { redis } from "../../../lib/redisClient";
 
-export async function POST(_request: NextRequest) {
+export async function POST() {
   try {
     // Increment the visitors count
     const visitors = await redis.incr("visitors");
