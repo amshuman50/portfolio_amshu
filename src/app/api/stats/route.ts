@@ -66,7 +66,7 @@ import { redis } from '../../../lib/redisClient';
 type StatsKey = 'visitors' | 'github_clicks' | 'linkedin_clicks' | 'instagram_clicks';
 type Stats = Record<StatsKey, number>;
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
   const keys: StatsKey[] = ['visitors', 'github_clicks', 'linkedin_clicks', 'instagram_clicks'];
 
   try {
