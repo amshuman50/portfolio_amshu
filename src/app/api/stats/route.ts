@@ -71,20 +71,33 @@ export async function GET() {
 
   try {
     // Fetch all stats from Redis
-    const results: number[] = await Promise.all(
+    const rawValues = await Promise.all(
       keys.map(async (key) => {
         const value = await redis.get(key); // Upstash Redis returns string | null
-        // Convert string to number safely, and guard against NaN
-        const numericValue = typeof value === 'string' ? parseInt(value, 10) : 0;
-        return Number.isNaN(numericValue) ? 0 : numericValue;
+        console.log('[stats] Redis GET', { key, value });
+        return { key, value };
       })
     );
+
+    const results: number[] = rawValues.map(({ value }) => {
+      if (value === null || value === undefined) return 0;
+
+      // value might be string, number, etc. Convert safely
+      const numericValue = Number(value);
+      if (Number.isNaN(numericValue)) {
+        console.warn('[stats] Redis parse non-numeric', { value });
+        return 0;
+      }
+      return numericValue;
+    });
 
     // Map results back to the keys
     const stats: Stats = keys.reduce((acc, key, index) => {
       acc[key] = results[index];
       return acc;
     }, {} as Stats);
+
+    console.log('[stats] computed', { stats });
 
     return NextResponse.json(
       { success: true, ...stats },
