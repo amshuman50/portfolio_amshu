@@ -6,17 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Instagram } from "lucide-react";
 
 type SocialClicks = {
-  github: number;
-  linkedin: number;
-  instagram: number;
+  github: string;
+  linkedin: string;
+  instagram: string;
 };
 
 export function Footer() {
-  const [visitors, setVisitors] = useState<number>(0);
+  const [visitors, setVisitors] = useState<string>("-");
   const [socialClicks, setSocialClicks] = useState<SocialClicks>({
-    github: 0,
-    linkedin: 0,
-    instagram: 0,
+    github: "-",
+    linkedin: "-",
+    instagram: "-",
   });
 
   useEffect(() => {
@@ -43,6 +43,8 @@ export function Footer() {
             linkedin: data.linkedin_clicks || 0,
             instagram: data.instagram_clicks || 0,
           });
+        } else {
+          console.error('/api/stats returned', response.status);
         }
       } catch (error) {
         console.error('Failed to fetch stats:', error);
