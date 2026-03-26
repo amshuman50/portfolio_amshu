@@ -48,10 +48,12 @@
 
 
 import { NextRequest, NextResponse } from 'next/server';
-import { redis } from "../../../lib/redisClient";
+import { getRedis } from "../../../lib/redisClient";
 
 export async function POST(request: NextRequest) {
   try {
+    const redis = getRedis();
+
     // Get the click type from query parameter (github, linkedin, instagram)
     const { searchParams } = new URL(request.url);
     const clickType = searchParams.get('type');
@@ -74,6 +76,14 @@ export async function POST(request: NextRequest) {
     );
   } catch (error) {
     console.error('Click API error:', error);
+
+    if (error instanceof Error && error.message.includes('Missing required Redis configuration')) {
+      return NextResponse.json(
+        { error: 'Redis is not configured. Set UPSTASH_REDIS_URL and UPSTASH_REDIS_TOKEN in Vercel environment variables.' },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
