@@ -74,8 +74,9 @@ export async function GET() {
     const results: number[] = await Promise.all(
       keys.map(async (key) => {
         const value = await redis.get(key); // Upstash Redis returns string | null
-        // Convert string to number safely
-        return typeof value === 'string' ? parseInt(value, 10) : 0;
+        // Convert string to number safely, and guard against NaN
+        const numericValue = typeof value === 'string' ? parseInt(value, 10) : 0;
+        return Number.isNaN(numericValue) ? 0 : numericValue;
       })
     );
 
