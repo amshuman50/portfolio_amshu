@@ -67,10 +67,10 @@ type StatsKey = 'visitors' | 'github_clicks' | 'linkedin_clicks' | 'instagram_cl
 type Stats = Record<StatsKey, number>;
 
 export async function GET() {
-  const redis = getRedis();
   const keys: StatsKey[] = ['visitors', 'github_clicks', 'linkedin_clicks', 'instagram_clicks'];
 
   try {
+    const redis = getRedis();
     // Fetch all stats from Redis
     const rawValues = await Promise.all(
       keys.map(async (key) => {
@@ -106,6 +106,20 @@ export async function GET() {
     );
   } catch (error) {
     console.error('Stats API error:', error);
+    
+    if (error instanceof Error && error.message.includes('Missing required Redis configuration')) {
+      return NextResponse.json(
+        {
+          error: 'Redis is not configured. Set UPSTASH_REDIS_URL and UPSTASH_REDIS_TOKEN in Vercel environment variables.',
+          visitors: 0,
+          github_clicks: 0,
+          linkedin_clicks: 0,
+          instagram_clicks: 0
+        },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       {
         error: 'Internal server error',

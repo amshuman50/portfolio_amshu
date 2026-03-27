@@ -45,8 +45,8 @@ import { NextResponse } from 'next/server';
 import { getRedis } from "../../../lib/redisClient";
 
 export async function POST() {
-  const redis = getRedis();
   try {
+    const redis = getRedis();
     // Increment the visitors count
     const visitors = await redis.incr("visitors");
 
@@ -56,6 +56,14 @@ export async function POST() {
     );
   } catch (error) {
     console.error('Visit API error:', error);
+    
+    if (error instanceof Error && error.message.includes('Missing required Redis configuration')) {
+      return NextResponse.json(
+        { error: 'Redis is not configured. Set UPSTASH_REDIS_URL and UPSTASH_REDIS_TOKEN in Vercel environment variables.' },
+        { status: 500 }
+      );
+    }
+
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
