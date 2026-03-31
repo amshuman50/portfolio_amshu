@@ -10,7 +10,7 @@ type ProjectsSectionProps = {
   projects: Project[];
 };
 
-// 🔹 Tech Badge
+//  Tech Badge
 function TechBadge({ label, index }: { label: string; index: number }) {
   return (
     <motion.span
@@ -24,7 +24,7 @@ function TechBadge({ label, index }: { label: string; index: number }) {
   );
 }
 
-// 🔹 Project Card
+//  Project Card
 function ProjectCard({
   project,
   index,
@@ -130,11 +130,8 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="relative py-20 px-4 overflow-hidden bg-background"
+      className="relative py-20 px-4 overflow-hidden bg-gray-100 dark:bg-gray-900"
     >
-      {/* Background blobs */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2 rounded-full" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary/10 blur-3xl opacity-20 translate-x-1/2 translate-y-1/2 rounded-full" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Header */}
