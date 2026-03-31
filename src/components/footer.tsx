@@ -3,7 +3,8 @@
 import { useEffect, useState } from 'react';
 import { Button } from "@/components/ui/button";
 // import { Github, Linkedin } from "lucide-react";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import { Github, Linkedin, Instagram, Heart } from "lucide-react";
+import { motion } from 'framer-motion';
 
 type SocialClicks = {
   github: string;
@@ -144,6 +145,18 @@ export function Footer() {
         <p className="text-sm text-muted-foreground">
           © {new Date().getFullYear()} Amshu Man Maharjan. All rights reserved.
         </p>
+
+          <div className="flex items-center gap-2  text-sm">
+            <span>Made with</span>
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 0.8, repeat: Infinity }}
+            >
+              {/* <Heart size={12} className="fill-red-500 text-red-500" /> */}
+              ❤️
+            </motion.div>
+            <span>using Next.js & Tailwind</span>
+          </div>
         <p className="text-xs text-muted-foreground/70">
           ✨ Visitors: {visitors}
         </p>
