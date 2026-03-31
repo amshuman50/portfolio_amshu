@@ -130,7 +130,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
     <section
       id="projects"
-      className="relative py-20 px-4 overflow-hidden bg-gray-100 dark:bg-gray-900"
+      className="relative py-20 px-4 overflow-hidden bg-gray-100 dark:bg-black"
     >
 
       <div className="relative max-w-7xl mx-auto">
@@ -141,7 +141,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           className="text-center mb-16"
         >
 
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-secondary bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6">
             Featured Projects
           </h2>
 
