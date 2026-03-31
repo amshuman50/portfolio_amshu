@@ -146,7 +146,7 @@ export function Footer() {
           © {new Date().getFullYear()} Amshu Man Maharjan. All rights reserved.
         </p>
 
-          <div className="flex items-center gap-2  text-sm">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>Made with</span>
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
