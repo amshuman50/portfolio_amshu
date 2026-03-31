@@ -44,11 +44,9 @@ function ProjectCard({
       className={`group relative overflow-hidden rounded-2xl ${
         featured
           ? 'md:col-span-2 md:row-span-2 border border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5'
-          : 'border border-white/10 bg-white/5'
+          : 'border border-primary/20 bg-white/5'
       }`}
     >
-      {/* Glow */}
-      <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-40 bg-gradient-to-br from-primary/0 via-transparent to-primary/0" />
 
       {/* Image */}
       <div className={`relative overflow-hidden ${featured ? 'h-80' : 'h-48'}`}>
@@ -63,7 +61,7 @@ function ProjectCard({
 
       {/* Content */}
       <div className={`relative z-10 p-6 ${featured ? 'p-8' : ''}`}>
-        <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition">
+        <h3 className="text-xl font-bold mb-2 group-hover:text-blue-500 transition">
           {project.title}
         </h3>
 
