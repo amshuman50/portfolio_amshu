@@ -28,6 +28,9 @@ const skills: Skill[] = [
   { name: "SQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", color: "blue" },
   { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", color: "cyan", rotate: true },
   { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", color: "slate" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", color: "green" },
+  { name: "Express.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg", color: "gray" },
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", color: "green" },
 ];
 
 export function SkillsSection() {
@@ -86,7 +89,7 @@ export function SkillsSection() {
             <div key={skill.name} className="flex flex-col items-center gap-2">
               <div className="w-14 h-14 flex items-center justify-center bg-white dark:bg-slate-900 rounded-xl shadow border p-3">
                 {/* <Image src={skill.icon} alt={skill.name} className="w-full h-full object-contain" fill/> */}
-                <Image src={skill.icon} alt={skill.name} width={40} height={40} className=" object-contain"/>
+                <Image src={skill.icon} alt={skill.name} width={40} height={40} className=" object-contain" />
               </div>
               <span className="text-xs text-slate-500 dark:text-slate-400">
                 {skill.name}
