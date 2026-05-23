@@ -31,7 +31,7 @@ export function HeroSection() {
                 Web Developer & <span className="italic text-slate-400 font-serif">UI/UX Enthusiast</span>
               </h2> */}
               <h2 className="mb-6 text-xl font-medium text-muted-foreground md:text-2xl">
-                Web Developer
+                MERN Developer
               </h2>
 
               <p className="max-w-xl mb-10 text-lg leading-relaxed text-muted-foreground mx-auto lg:mx-0">
@@ -95,7 +95,7 @@ export function HeroSection() {
                   </div>
                   <div>
                     <p className="text-[10px] uppercase tracking-wider text-slate-900 dark:text-muted-foreground font-bold">Expertise</p>
-                    <p className="text-sm font-bold text-foreground">React & Next.js</p>
+                    <p className="text-sm font-bold text-foreground">MERN with Next.js</p>
                   </div>
                 </div>
               </motion.div>
