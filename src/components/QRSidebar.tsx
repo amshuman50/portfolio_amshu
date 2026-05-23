@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
@@ -20,13 +20,15 @@ function QRModal({
   onClose: () => void;
 }) {
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 p-4">
+    <div className="fixed inset-0 z-9999 flex items-center justify-center bg-black/60 p-4">
       <div className="relative w-full max-w-md rounded-xl border bg-background p-4 shadow-lg">
         <p className="mb-2 text-sm font-medium">{title}</p>
         <Image
           src={imageSrc}
           alt={`${title} QR`}
-          className="h-[420px] w-full object-contain rounded-md"
+          width={150}
+          height={105}
+          className="h-105 w-full object-contain rounded-md"
         />
         <Button variant="outline" className="mt-3 w-full" onClick={onClose}>
           Close
