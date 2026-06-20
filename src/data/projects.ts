@@ -19,14 +19,13 @@ export const projects: Project[] = [
     image: '/projects/text_utils.png',
   },
   {
-    id: 2,
-    title: 'Simple Chat System',
-    description:
-      'A simple chat system You can join by using your name in different browser tab.[Open your browser tabs side by side]',
-    technologies: ['React', 'Next.js', 'Socket.io', 'TailwindCSS'],
-    githubUrl: 'https://github.com/amshuman50/Simple_chat',
-    liveUrl: 'https://simple-chat-one-sigma.vercel.app/',
-    image: '/projects/chat.png',
+    id: 3,
+    title: 'React Reminder App',
+    description: 'A Reminder app for adding upcomming events and check its status.',
+    technologies: ['React', 'Zustand','React-Router-DOM', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/amshuman50/react-reminder',
+    liveUrl: 'https://amshuman50.github.io/react-reminder/',
+    image: '/projects/react_reminder.png',
   },
   {
     id: 3,
