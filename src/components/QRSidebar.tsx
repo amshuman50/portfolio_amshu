@@ -42,6 +42,7 @@ export function QRSidebar({ }: QRSidebarProps) {
   // export function QRSidebar({ onClose }: QRSidebarProps) {
   const [showEsewa, setShowEsewa] = useState(false);
   const [showBank, setShowBank] = useState(false);
+  const [showKhalti, setShowKhalti] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -64,6 +65,14 @@ export function QRSidebar({ }: QRSidebarProps) {
     />
   ) : null;
 
+  const khaltiModal = showKhalti ? (
+    <QRModal
+      title="Khalti QR"
+      imageSrc="/khalti.jpeg"
+      onClose={() => setShowKhalti(false)}
+    />
+  ) : null;
+
   return (
     <>
       <DropdownButton label="QR Code" className="w-full">
@@ -73,6 +82,9 @@ export function QRSidebar({ }: QRSidebarProps) {
         <Button variant="ghost" className="w-full justify-start" onClick={() => setShowBank(true)}>
           Bank
         </Button>
+        <Button variant="ghost" className="w-full justify-start" onClick={() => setShowKhalti(true)}>
+          Khalti
+        </Button>
       </DropdownButton>
 
       {mounted &&
@@ -80,6 +92,7 @@ export function QRSidebar({ }: QRSidebarProps) {
           <>
             {esewaModal}
             {bankModal}
+            {khaltiModal}
           </>,
           document.body
         )}
